@@ -43,8 +43,8 @@ App({
    * 获取小程序基础信息
    */
   getWxappBase: function(callback) {
-    let App = this;
-    App._get('wxapp/base', {}, function(result) {
+   
+    this._get('wxapp/base', {}, function(result) {
       // 记录小程序基础信息
       wx.setStorageSync('wxapp', result.data.wxapp);
       callback && callback(result.data.wxapp);
@@ -241,7 +241,7 @@ App({
    */
   setTitle: function() {
     let App = this,
-      wxapp;
+       wxapp;
     if (wxapp = wx.getStorageSync('wxapp')) {
       wx.setNavigationBarTitle({
         title: wxapp.navbar.wxapp_title
